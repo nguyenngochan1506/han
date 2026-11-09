@@ -1,3 +1,3 @@
 fn main() {
-    println!("Hello, world!");
+    println!("4 + 1 = {}", han_core::add(4, 1));
 }
