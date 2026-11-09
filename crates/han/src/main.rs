@@ -1,10 +1,26 @@
-use clap::Parser;
+use clap::{Parser, Subcommand};
 
-/// Quản lý SSH host, tunel và công cụ từ terminal
+/// Quản lý SSH host, tunnel và công cụ từ terminal
 #[derive(Parser)]
 #[command(version)]
-struct Cli {}
+struct Cli {
+    #[command(subcommand)]
+    command: Option<Command>,
+}
+
+#[derive(Subcommand)]
+enum Command {
+    /// Kết nối SSH tới một host
+    Ssh {
+        /// Tên host trong ~/.ssh/config
+        host: String,
+    },
+}
 
 fn main() {
-    let _cli = Cli::parse();
+    let cli = Cli::parse();
+    match cli.command {
+        Some(Command::Ssh { host }) => println!("TODO: ssh tới {host}"),
+        None => println!("TODO: mở TUI"),
+    }
 }
