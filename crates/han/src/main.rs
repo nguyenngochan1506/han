@@ -1,3 +1,10 @@
+use clap::Parser;
+
+/// Quản lý SSH host, tunel và công cụ từ terminal
+#[derive(Parser)]
+#[command(version)]
+struct Cli {}
+
 fn main() {
-    println!("4 + 1 = {}", han_core::add(4, 1));
+    let _cli = Cli::parse();
 }
