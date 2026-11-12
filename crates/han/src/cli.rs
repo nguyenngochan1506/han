@@ -15,4 +15,15 @@ pub enum Command {
         /// Tên host trong ~/.ssh/config
         host: String,
     },
+    /// Quản lý danh sách host
+    Host {
+        #[command(subcommand)]
+        action: HostAction,
+    },
+}
+
+#[derive(Subcommand)]
+pub enum HostAction {
+    ///Liệt kê ra các host trong ~/.ssh/config
+    Ls,
 }
